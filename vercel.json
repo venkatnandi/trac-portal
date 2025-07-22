@@ -5,48 +5,50 @@
       "runtime": "vercel-php@0.6.0"
     }
   },
-  "routes": [
+  "rewrites": [
     {
-      "src": "/",
-      "dest": "/api/index.php"
+      "source": "/",
+      "destination": "/api/index.php"
     },
     {
-      "src": "/education",
-      "dest": "/api/education.php"
+      "source": "/education",
+      "destination": "/api/education.php"
     },
     {
-      "src": "/health",
-      "dest": "/api/health.php"
+      "source": "/health",
+      "destination": "/api/health.php"
     },
     {
-      "src": "/nutrition",
-      "dest": "/api/nutrition.php"
+      "source": "/nutrition",
+      "destination": "/api/nutrition.php"
     },
     {
-      "src": "/wash",
-      "dest": "/api/wash.php"
+      "source": "/wash",
+      "destination": "/api/wash.php"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/css",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/css"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     },
     {
-      "src": "/css",
-      "dest": "/css",
-      "headers": {
-        "Content-Type": "text/css"
-      }
-    },
-    {
-      "src": "/js/(.*)",
-      "dest": "/js/$1"
-    },
-    {
-      "src": "/includes/(.*)",
-      "dest": "/includes/$1"
-    },
-    {
-      "src": "/(.*\\.(css|js|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot))",
-      "dest": "/$1",
-      "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-      }
+      "source": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot))",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ],
   "cleanUrls": true,
