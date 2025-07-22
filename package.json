@@ -1,0 +1,27 @@
+{
+  "name": "trac-portal",
+  "version": "1.0.0",
+  "description": "TRAC Data Visualization Portal - Modern analytics platform for health, education, nutrition, and WASH indicators",
+  "main": "index.php",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Build complete'",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "data-visualization",
+    "analytics",
+    "health",
+    "education",
+    "nutrition",
+    "wash",
+    "india",
+    "dashboard"
+  ],
+  "author": "TRAC Portal Team",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "vercel": "^32.0.0"
+  }
+} 

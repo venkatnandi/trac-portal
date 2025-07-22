@@ -1,0 +1,52 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "*.php",
+      "use": "vercel-php@0.6.0"
+    },
+    {
+      "src": "css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "js/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/index.php"
+    },
+    {
+      "src": "/education",
+      "dest": "/education.php"
+    },
+    {
+      "src": "/health",
+      "dest": "/health.php"
+    },
+    {
+      "src": "/nutrition",
+      "dest": "/nutrition.php"
+    },
+    {
+      "src": "/wash",
+      "dest": "/wash.php"
+    },
+    {
+      "src": "/css",
+      "dest": "/css"
+    },
+    {
+      "src": "/js/(.*)",
+      "dest": "/js/$1"
+    }
+  ],
+  "functions": {
+    "*.php": {
+      "runtime": "vercel-php@0.6.0"
+    }
+  }
+} 
