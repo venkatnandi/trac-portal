@@ -43,10 +43,5 @@
       "src": "/js/(.*)",
       "dest": "/js/$1"
     }
-  ],
-  "functions": {
-    "*.php": {
-      "runtime": "vercel-php@0.6.0"
-    }
-  }
-} 
+  ]
+}
