@@ -28,7 +28,10 @@
     },
     {
       "src": "/css",
-      "dest": "/css"
+      "dest": "/css",
+      "headers": {
+        "Content-Type": "text/css"
+      }
     },
     {
       "src": "/js/(.*)",
@@ -45,5 +48,7 @@
         "Cache-Control": "public, max-age=31536000, immutable"
       }
     }
-  ]
-} 
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
+}
