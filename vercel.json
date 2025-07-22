@@ -1,19 +1,10 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "*.php",
-      "use": "vercel-php@0.6.0"
-    },
-    {
-      "src": "css",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "js/**",
-      "use": "@vercel/static"
+  "functions": {
+    "*.php": {
+      "runtime": "vercel-php@0.6.0"
     }
-  ],
+  },
   "routes": [
     {
       "src": "/",
@@ -42,6 +33,13 @@
     {
       "src": "/js/(.*)",
       "dest": "/js/$1"
+    },
+    {
+      "src": "/(.*\\.(css|js|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot))",
+      "dest": "/$1",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
     }
   ]
 }
