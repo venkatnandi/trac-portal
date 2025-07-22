@@ -2,10 +2,9 @@
   "name": "trac-portal",
   "version": "1.0.0",
   "description": "TRAC Data Visualization Portal - Modern analytics platform for health, education, nutrition, and WASH indicators",
-  "main": "index.php",
+  "main": "api/index.php",
   "scripts": {
     "dev": "vercel dev",
-    "build": "echo 'Build complete'",
     "deploy": "vercel --prod"
   },
   "keywords": [
@@ -24,4 +23,4 @@
   "devDependencies": {
     "vercel": "^32.0.0"
   }
-} 
+}
