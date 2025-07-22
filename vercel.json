@@ -1,74 +1,57 @@
 {
   "version": 2,
-  "functions": {
-    "api/*.php": {
-      "runtime": "vercel-php@0.6.0"
-    }
-  },
-  "rewrites": [
+  "builds": [
     {
-      "source": "/",
-      "destination": "/api/index.php"
-    },
-    {
-      "source": "/education",
-      "destination": "/api/education.php"
-    },
-    {
-      "source": "/health",
-      "destination": "/api/health.php"
-    },
-    {
-      "source": "/nutrition",
-      "destination": "/api/nutrition.php"
-    },
-    {
-      "source": "/wash",
-      "destination": "/api/wash.php"
+      "src": "api/*.php",
+      "use": "vercel-php@0.6.0"
     }
   ],
-  "headers": [
+  "routes": [
     {
-      "source": "/css",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/css"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
+      "src": "/",
+      "dest": "/api/index.php"
     },
     {
-      "source": "/js/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
+      "src": "/education",
+      "dest": "/api/education.php"
     },
     {
-      "source": "/(.*).css",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
+      "src": "/health",
+      "dest": "/api/health.php"
     },
     {
-      "source": "/(.*).js",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
+      "src": "/nutrition",
+      "dest": "/api/nutrition.php"
+    },
+    {
+      "src": "/wash",
+      "dest": "/api/wash.php"
+    },
+    {
+      "src": "/css",
+      "dest": "/css",
+      "headers": {
+        "Content-Type": "text/css",
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "src": "/js/(.*)",
+      "dest": "/js/$1",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "src": "/includes/(.*)",
+      "dest": "/includes/$1"
+    },
+    {
+      "src": "/(.*\\.(css|js|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot))",
+      "dest": "/$1",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
     }
-  ],
-  "cleanUrls": true,
-  "trailingSlash": false
+  ]
 }
